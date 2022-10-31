@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rest_api_app/details_page.dart';
 import 'package:rest_api_app/users_pets.dart';
 import 'package:http/http.dart' as http;
 
@@ -70,6 +71,15 @@ class _HomePageState extends State<HomePage> {
   Widget getRow(int index) {
     return Card(
       child: ListTile(
+        onTap: () {
+          // Navigate to Next Details
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    DetailsPage(userPet: usersPets.data[index]),
+              ));
+        },
         leading: CircleAvatar(
           radius: 21,
           backgroundColor:
